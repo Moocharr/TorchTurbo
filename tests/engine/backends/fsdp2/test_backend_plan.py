@@ -60,6 +60,8 @@ def module_tags(module):
 def make_backend(*, mtp_enabled=False):
     backend = FSDP2Backend.__new__(FSDP2Backend)
     backend.config = types.SimpleNamespace(
+        mega_moe=False,
+        moe=types.SimpleNamespace(token_dispatcher="alltoall"),
         mtp=types.SimpleNamespace(enabled=mtp_enabled),
         loss_chunk=types.SimpleNamespace(enabled=False),
     )
