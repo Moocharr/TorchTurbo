@@ -1,6 +1,6 @@
 {
   "source_commit": "e49ff83aa5667099a79e9f5aa5f6be8db958bfc9",
-  "stage": 5,
+  "stage": 6,
   "files": [
     {
       "target": "scripts/runs/config_example.yaml",
@@ -41,15 +41,22 @@
       "target": "src/torchturbo/engine/args.py",
       "source": "src/torchturbo/engine/args.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "3a5414bff6a90ba3e52ff5fae5e79ffd5e5c2795df1d7225b4b9f0ca43f1885a",
+      "target_sha256": "63f152f23678457eeabb036d496002a0c06f5ebde823d8b6b185a225bc0c8612",
       "source_sha256": "31874f8934116a533563a97c2b72e720109d14f1e0bb267cd787159434a11698"
     },
     {
       "target": "src/torchturbo/engine/backends/fsdp2/backend.py",
       "source": "src/torchturbo/engine/backends/fsdp2/backend.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "8e1a1ab564f7781a637be5b0215164d9e2edafa21c95e63c2aaba688c4731067",
+      "target_sha256": "a45a951e001ffeb1bd53b6413926a7cba5fd8fce79d93b48bfbccd899b3b33d7",
       "source_sha256": "69a0a13f24422faf511b190783d27669f0a69f841e41020b13043ff34588a63c"
+    },
+    {
+      "target": "src/torchturbo/engine/backends/fsdp2/checkpoint/dcp.py",
+      "source": "src/torchturbo/engine/backends/fsdp2/dcp.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "93cf75f6c73f988ef6d502b2f59196f582513cc153062a9566eb9990b9eea5ef",
+      "source_sha256": "f80425900cdedbcb099d5e44edb1d549d2d6321fa06780097af8dc70722e6c21"
     },
     {
       "target": "src/torchturbo/engine/backends/fsdp2/checkpoint/weight_saver.py",
@@ -82,6 +89,14 @@
       "target_sha256": "1950d02d61adf302093f8e0f9bc7be74be9c0669bc53ac6f7aa0075ef3ca7747",
       "source_sha256": "1950d02d61adf302093f8e0f9bc7be74be9c0669bc53ac6f7aa0075ef3ca7747",
       "source_non_import_ast_sha256": "dd8ba13a4b0f2c77584abd5f729140fa0f613fb3d368b8f190c1cdec5fc21b6a"
+    },
+    {
+      "target": "src/torchturbo/engine/backends/fsdp2/optimizers/engram.py",
+      "source": "src/torchturbo/engine/backends/fsdp2/optimizers/engram.py",
+      "comparison": "byte-identical",
+      "target_sha256": "d8a5216f7e0d57282ece3676f446977a56a6a190c842258b687c82769358c53f",
+      "source_sha256": "d8a5216f7e0d57282ece3676f446977a56a6a190c842258b687c82769358c53f",
+      "source_non_import_ast_sha256": "9fe39b6cf788c077060b43a5de370dc0eda3c49da78a0382c1934510bbf2c5b3"
     },
     {
       "target": "src/torchturbo/engine/config.py",
@@ -126,15 +141,10 @@
     {
       "target": "src/torchturbo/models/deepseek_v41/host_offload_embedding.py",
       "source": "src/torchturbo/models/deepseek_v41/host_offload_embedding.py",
-      "comparison": "adapter-or-stage-projection",
-      "target_sha256": "4147620ab6f439265edb16e7f3ea9842948a556b2f5e682d9b089530af0ec16d",
+      "comparison": "byte-identical",
+      "target_sha256": "8d350ebcad3f3c254f8d6a35a85325c409d0ac6007242be157dba25b3b01f5b0",
       "source_sha256": "8d350ebcad3f3c254f8d6a35a85325c409d0ac6007242be157dba25b3b01f5b0",
-      "unchanged_definitions": {
-        "TorchHostOffloadEmbedding.shard_": "763fbf382d77a29ccd13bb792c8647bebc02adda1a4fc82304b2fd2407736a9f",
-        "TorchHostOffloadEmbedding.load_rows": "7e99b315b68e30928a601cdc3d974c020a849878b9eb7d3e614c929863606ed0",
-        "TorchHostOffloadEmbedding.init_rows_random": "db615eb18dd2f943776fb34a92a87f1c0deb7dbfe6648d4379239f34961cd800",
-        "TorchHostOffloadEmbedding.freeze": "962835ca54f7d011542217fc3bcfb829556f01cf85ff23e2293070589ce889db"
-      }
+      "source_non_import_ast_sha256": "677b877de1cd0a04c2fa25d2d07fdb1e51d5c17712f9f2d642e9cba709eab18b"
     },
     {
       "target": "src/torchturbo/models/deepseek_v41/mfu.py",
@@ -148,7 +158,7 @@
       "target": "src/torchturbo/models/deepseek_v41/model.py",
       "source": "src/torchturbo/models/deepseek_v41/model.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "b9dd90065121c4d72b00605c784132f509ef6598302134445d7e1b8507b5f2f4",
+      "target_sha256": "ae21b2442bfd28146aac35cb0751f3efe2322455b69ef0cc2a31f51dab13ace8",
       "source_sha256": "83e5f120e2c462459f38633643a3f2754be978606f12bdbdb0f76ec4b9d5434d",
       "unchanged_definitions": {
         "DeepseekV41WeightConverter": "2b2f4f52c97cb561808e11f5521b1659fbca99bae311f73b50698a58d6a9f0e8",
@@ -586,7 +596,7 @@
       "target": "tests/engine/test_engine_config_loading.py",
       "source": "tests/engine/test_engine_config_loading.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "41d7832fe79654f7a697a46ca8f287bae64394b25efcf734793e514475bb055f",
+      "target_sha256": "c330b1ac2387742d318ce65f8aae81bf93e0a42831382bb71723a476714f4a2d",
       "source_sha256": "4bbe83e22f6589875fc844e9e1a1eeedf01497eac654450cca7a2309252ba7df"
     },
     {
@@ -715,6 +725,16 @@
       "comparison": "adapter-or-stage-projection",
       "target_sha256": "1046b054cc282604dadff9abaeab82fe2de00a567b16d20b25af4c50d1f57fa7",
       "source_sha256": "0950857c8e212020b1df5a7aadc5876e4e4c53576bb8d07003a4348dbbf10bd8"
+    }
+  ],
+  "intentional_behavior_changes": [
+    {
+      "target": "src/torchturbo/models/deepseek_v41/model.py",
+      "definition": "TurboDeepseekV41ForCausalLM.on_materialized",
+      "source_behavior": "train_engram overrides the current table requires_grad flag",
+      "current_behavior": "train_engram permits training only while the table is not explicitly frozen",
+      "reason": "Preserve PEFT and explicit parameter freezing across host materialization and lifecycle replay",
+      "commit_stage": 6
     }
   ]
 }

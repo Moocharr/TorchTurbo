@@ -19,6 +19,10 @@ later features without inventing replacements for their algorithms.
 
 ## Required public infrastructure adapters
 
+See [the itemized interface audit](dsv41-public-interface-adapters.md) for
+source/public differences, necessity, semantic effects and the explicit
+Engram freeze-precedence correction in commit 6.
+
 The public model lifecycle, optimizer plan and checkpoint-manager APIs differ:
 
 - `deepseek_v41/model.py` connects the internal wrapper to `TurboModel`, nested
@@ -52,6 +56,8 @@ The public model lifecycle, optimizer plan and checkpoint-manager APIs differ:
 `internal_source_manifest.json` records source/staged SHA-256 values and
 unchanged source function bodies in files requiring API adapters. EOF newline
 differences are identified separately from source-content differences.
+`public-baseline-restored` entries pin the shared router and utilities to
+the public base; V4.1 controls remain in the internal source router/helpers.
 
 ## Validation limits
 
