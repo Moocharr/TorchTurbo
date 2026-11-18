@@ -1,12 +1,12 @@
 {
   "source_commit": "e49ff83aa5667099a79e9f5aa5f6be8db958bfc9",
-  "stage": 2,
+  "stage": 3,
   "files": [
     {
       "target": "src/torchturbo/engine/args.py",
       "source": "src/torchturbo/engine/args.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "418ab2e5494d27b4416576b0d78baee0bec9dfbd1f48e2e1f2a000a84abde403",
+      "target_sha256": "70dd2a521375153478f12ef8666ccb1aefde819d8cdbb3c223f5c67fc9b025fd",
       "source_sha256": "31874f8934116a533563a97c2b72e720109d14f1e0bb267cd787159434a11698"
     },
     {
@@ -27,7 +27,7 @@
       "target": "src/torchturbo/engine/core.py",
       "source": "src/torchturbo/engine/core.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "834bffb991b069134d3390c063ed075f51e7ba47c87fa18aceca1a8cce09fe09",
+      "target_sha256": "6ac01caf5ab7739ae4cded7856c0125f3efb2565ed8ff2c119f04f800c01fd99",
       "source_sha256": "4da269919b924c6467cd6e76a1c79f3f8b10fb221bd9070e6768099038b21e27"
     },
     {
@@ -58,7 +58,7 @@
       "target": "src/torchturbo/models/deepseek_v41/model.py",
       "source": "src/torchturbo/models/deepseek_v41/model.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "50a429bd78c6d5da3d706143d39d9e717672e2dc3ce770a9e56f2a401b02d884",
+      "target_sha256": "89048eba33081fdf0cc264a5aa7f87df17b8703d80cdf874b2816305041b863e",
       "source_sha256": "83e5f120e2c462459f38633643a3f2754be978606f12bdbdb0f76ec4b9d5434d",
       "unchanged_definitions": {
         "DeepseekV41WeightConverter.__init__": "a13ac02baee67c0603e296ea771381be2fd4dc9b3ad5b70d7145841bd9db29c1",
@@ -74,8 +74,11 @@
         "TurboDeepseekV41ForCausalLM.get_flops_class": "5d09d7b9a736929eecb521d2f1e48bd67d36fdb668b4cdb551f97d1e3921a55d",
         "TurboDeepseekV41ForCausalLM._compute_logits": "81e9556377aaab9c2d958f688207cbd06731653fa594444fb87daaf38099bedf",
         "TurboDeepseekV41ForCausalLM.get_parameter_groups": "23e742d3fb3486fd95eac1d58d1446cca74cddc9e408a1075aaaaf11e701dc97",
+        "TurboDeepseekV41ForCausalLM._pre_init_patches": "f281b3ab1a06425a3b8f57a96eb001d78f797578a9fa79deaa06615ed7e3dc8b",
         "TurboDeepseekV41ForCausalLM._post_init_patches": "af0223ed8f9f523aa338ad316dad337d53aa468fcc8df821d0044677e6da2d50",
-        "TurboDeepseekV41ForCausalLM._register_publish_shared_for_fsdp": "ce15617074d267e1697911558d2483e7966b723e3c1af5cbf899d0a0bd409290"
+        "TurboDeepseekV41ForCausalLM._register_publish_shared_for_fsdp": "ce15617074d267e1697911558d2483e7966b723e3c1af5cbf899d0a0bd409290",
+        "TurboDeepseekV41ForCausalLM._freeze_indexers": "e6dbf8151e0a0d2eae3ec035b15a52d717e4fc4a4bed0b14d743f433e3e33f91",
+        "TurboDeepseekV41ForCausalLM.set_aux_loss_scale": "c884e6185c58d8484d16dca9177f25ea25a0f1a504a5b32257f6abffa537d0d2"
       }
     },
     {
@@ -190,18 +193,18 @@
     {
       "target": "src/torchturbo/models/deepseek_v41/npu.py",
       "source": "src/torchturbo/models/deepseek_v41/npu.py",
-      "comparison": "adapter-or-stage-projection",
-      "target_sha256": "ce05a1725cb8aa6a9bcab2f7e43f27cb5e4dd1db25bd9ed2dcd55beabb3a7f3e",
+      "comparison": "import-only",
+      "target_sha256": "84e36ea79cdd1f7f3778ce889b7cff6ad218ae0770153740f33537a5992924a0",
       "source_sha256": "b8df62f5b1ac3b852d323593852378ba65d182f18bc9b9ca4edcc6e86019e62b",
-      "unchanged_definitions": {
-        "_npu_hc_pre": "517482613dc2f4ab6e6ec91918298262dbca6c958dbde9c0b9386144ff7277c8",
-        "patch_deepseek_v41_npu_mhc": "d7a110758c79d95421b2638a1ac84c0b03ce824bcc7e4b1379d97a7564657869",
-        "_env_flag_enabled": "a9a096ebbddbd429c663ee35f60965c9f8982c03140722131a8ab23b57645501",
-        "_npu_rms_norm_forward": "e25b0bef6bb9a025d031dea9dcddaf7ca78f1b23375bcbaffda98536c030b9a5",
-        "patch_deepseek_v41_npu_rms_norm": "3933994b210478777b6dc171052abc41c0544dbb5b6f3bae745546848a93fec5",
-        "_npu_hc_post_forward": "d20ab36be229eef90116103bcea7671a82ea496e9e4dc3a8a81b5c83161d23e5",
-        "patch_deepseek_v41_npu_hc_post": "38148197f3a44e0be40eb71f353520662d657356192575a1f37a44b604032de1"
-      }
+      "source_non_import_ast_sha256": "7676f0fbce38cb33c651b914dfed2174e3bf400a35098597b87bf266367d78fd"
+    },
+    {
+      "target": "src/torchturbo/models/deepseek_v41/packed_metadata.py",
+      "source": "src/torchturbo/models/deepseek_v41/packed_metadata.py",
+      "comparison": "byte-identical",
+      "target_sha256": "9178450a3829a5b1ad866484a77e68e830ec9e96e538f7c9bec60e8d1305e0dd",
+      "source_sha256": "9178450a3829a5b1ad866484a77e68e830ec9e96e538f7c9bec60e8d1305e0dd",
+      "source_non_import_ast_sha256": "9237331b9afc05bcc959a3f7118d296d47a305882dced7915f8a42d88d32d719"
     },
     {
       "target": "src/torchturbo/models/deepseek_v41/parallel_plan.py",
@@ -243,6 +246,13 @@
       "source_non_import_ast_sha256": "a0dff97d3cd880739af4a34c82f7e1a0bb3160f06b7786c36b917d6f015be675"
     },
     {
+      "target": "src/torchturbo/ops/dispatcher.py",
+      "source": "src/torchturbo/ops/dispatcher.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "853c636166f0bce05dadb1d3e5b6aa0f5c4dad7c57e2d8b9ec2a4eb6bea93e4a",
+      "source_sha256": "eefbee12f86a1d66d0834f89f60964e7841b45ea05f1fd670a33834744c5710f"
+    },
+    {
       "target": "src/torchturbo/ops/providers/native/compressor.py",
       "source": "src/torchturbo/ops/providers/native/compressor.py",
       "comparison": "adapter-or-stage-projection",
@@ -250,11 +260,74 @@
       "source_sha256": "eff526ae0e74e1cb40aa76c2f0969a539b8e4d660b454dff3a87d106d9fb2b82"
     },
     {
+      "target": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor.py",
+      "source": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor.py",
+      "comparison": "byte-identical",
+      "target_sha256": "67c769a263928f22ff7f194f9430f04f25d1e386e30f7502fe2de72dd91598c4",
+      "source_sha256": "67c769a263928f22ff7f194f9430f04f25d1e386e30f7502fe2de72dd91598c4",
+      "source_non_import_ast_sha256": "50d38c27178a074d45fecfec9dc28b0b60f22a21f38cec784a0579d46b2b2c77"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor_bwd_impl.py",
+      "source": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor_bwd_impl.py",
+      "comparison": "byte-identical",
+      "target_sha256": "b31255b369b060b3586965ceee978a18cc2a842171537cea477946fbe8261311",
+      "source_sha256": "b31255b369b060b3586965ceee978a18cc2a842171537cea477946fbe8261311",
+      "source_non_import_ast_sha256": "6576cad17208e9a47c9564e4038efcbe97cb684298b41a7635bd886bbde8afbd"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor_fwd_impl.py",
+      "source": "src/torchturbo/ops/providers/npu/CSA2_compressor/CSA2_compressor_fwd_impl.py",
+      "comparison": "byte-identical",
+      "target_sha256": "8d37fbd084510f2cb1e75bf360978d25a5beeb8df78f9f37c58d741ad0ad8a3e",
+      "source_sha256": "8d37fbd084510f2cb1e75bf360978d25a5beeb8df78f9f37c58d741ad0ad8a3e",
+      "source_non_import_ast_sha256": "5395ca7434ea26d5751d2c8b5d40097fa365bc14f09f941ed13a4a9f09891de4"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/CSA2_compressor/README.md",
+      "source": "src/torchturbo/ops/providers/npu/CSA2_compressor/README.md",
+      "comparison": "byte-identical",
+      "target_sha256": "a9f21a2eaa0705749f23d4655d72dd775da1d2f7295112829f3bf1528d45d5ba",
+      "source_sha256": "a9f21a2eaa0705749f23d4655d72dd775da1d2f7295112829f3bf1528d45d5ba"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/CSA2_compressor/__init__.py",
+      "source": "src/torchturbo/ops/providers/npu/CSA2_compressor/__init__.py",
+      "comparison": "byte-identical",
+      "target_sha256": "ef01bf89d00a4c0f6d1469e47fbea78b9ae25160215c7c9708f5808649b5fc6d",
+      "source_sha256": "ef01bf89d00a4c0f6d1469e47fbea78b9ae25160215c7c9708f5808649b5fc6d",
+      "source_non_import_ast_sha256": "0926c8e870f634a624db5e5d22b97d06a6c976c0f3e3c0a5b2cb31cc86eb98be"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/cann_compressor.py",
+      "source": "src/torchturbo/ops/providers/npu/cann_compressor.py",
+      "comparison": "byte-identical",
+      "target_sha256": "4f1347469684a233c247014bfc407ee48ea3aeefd7d7e668d5256958081307d0",
+      "source_sha256": "4f1347469684a233c247014bfc407ee48ea3aeefd7d7e668d5256958081307d0",
+      "source_non_import_ast_sha256": "f0f258837ffa7e50e38bd1a203f84c3e4c011d9440c2a7cfe19115facb591d71"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/compressor.py",
+      "source": "src/torchturbo/ops/providers/npu/compressor.py",
+      "comparison": "byte-identical",
+      "target_sha256": "738fd905eae9d6457f287b62dce4d01ccf5396ccf8063c050108b42e86fd9276",
+      "source_sha256": "738fd905eae9d6457f287b62dce4d01ccf5396ccf8063c050108b42e86fd9276",
+      "source_non_import_ast_sha256": "b4a8d49f6add093742e24ea2c4792e75d97f510300961e803452201b133250d5"
+    },
+    {
       "target": "src/torchturbo/ops/providers/npu/gated_activation.py",
       "source": "src/torchturbo/ops/providers/npu/gated_activation.py",
       "comparison": "adapter-or-stage-projection",
       "target_sha256": "86f0dac9dc8b6e019a9381f809a010cefce0d8246e8ee9f1029517442b9d882b",
       "source_sha256": "ef34828db48ed311a929a8f175f5057135ffcd1f90020ab5aea89fcb5bc7631a"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/lightning_indexer_v2.py",
+      "source": "src/torchturbo/ops/providers/npu/lightning_indexer_v2.py",
+      "comparison": "byte-identical",
+      "target_sha256": "1931db42643ebb0763d3d702cfae20445952661b3e396bd03fd6a863eabe2c17",
+      "source_sha256": "1931db42643ebb0763d3d702cfae20445952661b3e396bd03fd6a863eabe2c17",
+      "source_non_import_ast_sha256": "d048ea6a5a610fb901f49b0815eaec06e5df4deb3b6ca016351fe4ba4051f508"
     },
     {
       "target": "src/torchturbo/ops/providers/npu/mhc_post.py",
@@ -273,6 +346,30 @@
       "source_non_import_ast_sha256": "0d24d014fd5237e0cc7ba0ac8890bd4762202c4fd36ff691067aa43ec29e397b"
     },
     {
+      "target": "src/torchturbo/ops/providers/npu/sparse_flash_mla.py",
+      "source": "src/torchturbo/ops/providers/npu/sparse_flash_mla.py",
+      "comparison": "byte-identical",
+      "target_sha256": "47c84f9ae48bd1e730a9624097944b580f45c8cab0c72c961b76b9747a7f0212",
+      "source_sha256": "47c84f9ae48bd1e730a9624097944b580f45c8cab0c72c961b76b9747a7f0212",
+      "source_non_import_ast_sha256": "cb651a3a672c2a073ce3be48a518815d9ca7fde3e99e0d5600ccec7c5c4958fa"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/sparse_lightning_indexer.py",
+      "source": "src/torchturbo/ops/providers/npu/sparse_lightning_indexer.py",
+      "comparison": "byte-identical",
+      "target_sha256": "5f0269739231bdfb4b21c5305bbb2558011b958db63a3d1b53a41de14cc811b9",
+      "source_sha256": "5f0269739231bdfb4b21c5305bbb2558011b958db63a3d1b53a41de14cc811b9",
+      "source_non_import_ast_sha256": "6e722445753f4f272b0cf85d3263febc20fbfcc8ca97f7a3ab7acd5618e5fd4e"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/sparse_lightning_indexer_kl_loss_grad.py",
+      "source": "src/torchturbo/ops/providers/npu/sparse_lightning_indexer_kl_loss_grad.py",
+      "comparison": "byte-identical",
+      "target_sha256": "9cc57459bdd658fed3bda36f0e69ab8abaebc09c538fd6766827ded7d5e38d55",
+      "source_sha256": "9cc57459bdd658fed3bda36f0e69ab8abaebc09c538fd6766827ded7d5e38d55",
+      "source_non_import_ast_sha256": "b05d00554a563f3da62c1c77cfaa1b61e8b3251dd2af00363ee45a1509c48dbc"
+    },
+    {
       "target": "src/torchturbo/parallel/fsdp.py",
       "source": "src/torchturbo/parallel/fsdp.py",
       "comparison": "adapter-or-stage-projection",
@@ -287,12 +384,27 @@
       "source_sha256": "05cfa1d8c5ee4597665d6e2244458eb52d2bac978b2a9a97ef86f3a108b6c3c1"
     },
     {
+      "target": "tests/engine/test_engine_config_loading.py",
+      "source": "tests/engine/test_engine_config_loading.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "d129d39f6806c15b96abfd659a9a66d4c274425a1237c65d86825d3354285032",
+      "source_sha256": "4bbe83e22f6589875fc844e9e1a1eeedf01497eac654450cca7a2309252ba7df"
+    },
+    {
       "target": "tests/models/deepseek_v41/conftest.py",
       "source": "tests/models/deepseek_v41/conftest.py",
       "comparison": "byte-identical",
       "target_sha256": "41b2fe2a94bd713ee7ae13164c19905ecd78a1efc4a71966cac1661299bab71f",
       "source_sha256": "41b2fe2a94bd713ee7ae13164c19905ecd78a1efc4a71966cac1661299bab71f",
       "source_non_import_ast_sha256": "d16296beafefd4bcbb6b45794bb15680c613e41e672ddfe0e078f514da6dccd4"
+    },
+    {
+      "target": "tests/models/deepseek_v41/sparse_mla_test_utils.py",
+      "source": "tests/models/deepseek_v41/sparse_mla_test_utils.py",
+      "comparison": "byte-identical",
+      "target_sha256": "f7a5fc32a2b9667dd2c88c6cb4cc3988f04f525e8dc950b76a7a5c6bf97703d8",
+      "source_sha256": "f7a5fc32a2b9667dd2c88c6cb4cc3988f04f525e8dc950b76a7a5c6bf97703d8",
+      "source_non_import_ast_sha256": "c4bc55abd2db942be9447fca9fd15a7f30f1764b25c1796a7b84d23bfc716945"
     },
     {
       "target": "tests/models/deepseek_v41/test_chunked_loss_contract.py",
@@ -317,6 +429,28 @@
       "target_sha256": "889ff0f8d89f4b0874e526fbf91db7c1a6bdcce150394660b4020a144a523520",
       "source_sha256": "889ff0f8d89f4b0874e526fbf91db7c1a6bdcce150394660b4020a144a523520",
       "source_non_import_ast_sha256": "364152be37fef8e2d29e535b68a4b116de3f7ac705774e30a2d8a57873ada4af"
+    },
+    {
+      "target": "tests/models/deepseek_v41/test_runtime_contracts.py",
+      "source": "tests/models/deepseek_v41/test_runtime_contracts.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "f1c19a43699866565303cff0df6179883a787791caeb2f1f14d74ad23b1618a1",
+      "source_sha256": "840a19504753ac59bd3f2f3658d351c8049768a5b787cd3084e706c0f1b6c089"
+    },
+    {
+      "target": "tests/models/deepseek_v41/test_sparse_mla.py",
+      "source": "tests/models/deepseek_v41/test_sparse_mla.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "39dccf71e01aa69ab8ab95ecfc9a1f3171f2ea1f20193d1186263c3ea19f0a1e",
+      "source_sha256": "53f16566bb31f901b333b244a2e204942ffed885ca3c1128109e32e08b9c8959"
+    },
+    {
+      "target": "tests/models/deepseek_v41/test_sparse_mla_packed_sp.py",
+      "source": "tests/models/deepseek_v41/test_sparse_mla_packed_sp.py",
+      "comparison": "byte-identical",
+      "target_sha256": "3364a8412b74e9542c9d2343119d22111f8bd85e8142fa41700f23a8f439dd50",
+      "source_sha256": "3364a8412b74e9542c9d2343119d22111f8bd85e8142fa41700f23a8f439dd50",
+      "source_non_import_ast_sha256": "5f7d9f39493e646d137be5527208561cdf3de266e272f34a4c0d805b526ef445"
     },
     {
       "target": "tests/ops/npu/test_dsv41_mhc_post_ops.py",
