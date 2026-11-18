@@ -1,6 +1,6 @@
 {
   "source_commit": "e49ff83aa5667099a79e9f5aa5f6be8db958bfc9",
-  "stage": 1,
+  "stage": 2,
   "files": [
     {
       "target": "src/torchturbo/engine/args.py",
@@ -58,7 +58,7 @@
       "target": "src/torchturbo/models/deepseek_v41/model.py",
       "source": "src/torchturbo/models/deepseek_v41/model.py",
       "comparison": "adapter-or-stage-projection",
-      "target_sha256": "ba0a510c2a128c2359c8d21d6dd5397b4b1058673c64db0ebaa13d852882a2af",
+      "target_sha256": "50a429bd78c6d5da3d706143d39d9e717672e2dc3ce770a9e56f2a401b02d884",
       "source_sha256": "83e5f120e2c462459f38633643a3f2754be978606f12bdbdb0f76ec4b9d5434d",
       "unchanged_definitions": {
         "DeepseekV41WeightConverter.__init__": "a13ac02baee67c0603e296ea771381be2fd4dc9b3ad5b70d7145841bd9db29c1",
@@ -74,6 +74,7 @@
         "TurboDeepseekV41ForCausalLM.get_flops_class": "5d09d7b9a736929eecb521d2f1e48bd67d36fdb668b4cdb551f97d1e3921a55d",
         "TurboDeepseekV41ForCausalLM._compute_logits": "81e9556377aaab9c2d958f688207cbd06731653fa594444fb87daaf38099bedf",
         "TurboDeepseekV41ForCausalLM.get_parameter_groups": "23e742d3fb3486fd95eac1d58d1446cca74cddc9e408a1075aaaaf11e701dc97",
+        "TurboDeepseekV41ForCausalLM._post_init_patches": "af0223ed8f9f523aa338ad316dad337d53aa468fcc8df821d0044677e6da2d50",
         "TurboDeepseekV41ForCausalLM._register_publish_shared_for_fsdp": "ce15617074d267e1697911558d2483e7966b723e3c1af5cbf899d0a0bd409290"
       }
     },
@@ -187,6 +188,22 @@
       }
     },
     {
+      "target": "src/torchturbo/models/deepseek_v41/npu.py",
+      "source": "src/torchturbo/models/deepseek_v41/npu.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "ce05a1725cb8aa6a9bcab2f7e43f27cb5e4dd1db25bd9ed2dcd55beabb3a7f3e",
+      "source_sha256": "b8df62f5b1ac3b852d323593852378ba65d182f18bc9b9ca4edcc6e86019e62b",
+      "unchanged_definitions": {
+        "_npu_hc_pre": "517482613dc2f4ab6e6ec91918298262dbca6c958dbde9c0b9386144ff7277c8",
+        "patch_deepseek_v41_npu_mhc": "d7a110758c79d95421b2638a1ac84c0b03ce824bcc7e4b1379d97a7564657869",
+        "_env_flag_enabled": "a9a096ebbddbd429c663ee35f60965c9f8982c03140722131a8ab23b57645501",
+        "_npu_rms_norm_forward": "e25b0bef6bb9a025d031dea9dcddaf7ca78f1b23375bcbaffda98536c030b9a5",
+        "patch_deepseek_v41_npu_rms_norm": "3933994b210478777b6dc171052abc41c0544dbb5b6f3bae745546848a93fec5",
+        "_npu_hc_post_forward": "d20ab36be229eef90116103bcea7671a82ea496e9e4dc3a8a81b5c83161d23e5",
+        "patch_deepseek_v41_npu_hc_post": "38148197f3a44e0be40eb71f353520662d657356192575a1f37a44b604032de1"
+      }
+    },
+    {
       "target": "src/torchturbo/models/deepseek_v41/parallel_plan.py",
       "source": "src/torchturbo/models/deepseek_v41/parallel_plan.py",
       "comparison": "adapter-or-stage-projection",
@@ -233,6 +250,29 @@
       "source_sha256": "eff526ae0e74e1cb40aa76c2f0969a539b8e4d660b454dff3a87d106d9fb2b82"
     },
     {
+      "target": "src/torchturbo/ops/providers/npu/gated_activation.py",
+      "source": "src/torchturbo/ops/providers/npu/gated_activation.py",
+      "comparison": "adapter-or-stage-projection",
+      "target_sha256": "86f0dac9dc8b6e019a9381f809a010cefce0d8246e8ee9f1029517442b9d882b",
+      "source_sha256": "ef34828db48ed311a929a8f175f5057135ffcd1f90020ab5aea89fcb5bc7631a"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/mhc_post.py",
+      "source": "src/torchturbo/ops/providers/npu/mhc_post.py",
+      "comparison": "byte-identical",
+      "target_sha256": "54548a5bf53f18208f2c465ef68db9aa72ff21d13a01b00f3264d4fc0077a74f",
+      "source_sha256": "54548a5bf53f18208f2c465ef68db9aa72ff21d13a01b00f3264d4fc0077a74f",
+      "source_non_import_ast_sha256": "1bc65b01330e7f293f8ad4a2caa62f6665e9dd20eef86c939692fb96687c3711"
+    },
+    {
+      "target": "src/torchturbo/ops/providers/npu/mhc_pre_sinkhorn_premix.py",
+      "source": "src/torchturbo/ops/providers/npu/mhc_pre_sinkhorn_premix.py",
+      "comparison": "eof-only",
+      "target_sha256": "4bf235301d9cdb6e67abfe01caf2f9229d5c627da841f5df7988b1adf9fce08c",
+      "source_sha256": "734a526c3ffacb15f1c2f5800c44b5e81e32b46e230ce3758e4229f9cc7057f0",
+      "source_non_import_ast_sha256": "0d24d014fd5237e0cc7ba0ac8890bd4762202c4fd36ff691067aa43ec29e397b"
+    },
+    {
       "target": "src/torchturbo/parallel/fsdp.py",
       "source": "src/torchturbo/parallel/fsdp.py",
       "comparison": "adapter-or-stage-projection",
@@ -277,6 +317,22 @@
       "target_sha256": "889ff0f8d89f4b0874e526fbf91db7c1a6bdcce150394660b4020a144a523520",
       "source_sha256": "889ff0f8d89f4b0874e526fbf91db7c1a6bdcce150394660b4020a144a523520",
       "source_non_import_ast_sha256": "364152be37fef8e2d29e535b68a4b116de3f7ac705774e30a2d8a57873ada4af"
+    },
+    {
+      "target": "tests/ops/npu/test_dsv41_mhc_post_ops.py",
+      "source": "tests/ops/npu/test_dsv41_mhc_post_ops.py",
+      "comparison": "byte-identical",
+      "target_sha256": "f79a3047ae23419e6e7ba8073bd0709956edf121615d7070c4b8ff5121da314e",
+      "source_sha256": "f79a3047ae23419e6e7ba8073bd0709956edf121615d7070c4b8ff5121da314e",
+      "source_non_import_ast_sha256": "519baa8845af8ce2bff9f9afff78cfca20ffb504c27f4ab76dcec6d38c21cd74"
+    },
+    {
+      "target": "tests/ops/npu/test_dsv41_mhc_sinkhorn_ops.py",
+      "source": "tests/ops/npu/test_dsv41_mhc_sinkhorn_ops.py",
+      "comparison": "byte-identical",
+      "target_sha256": "ba7e5534c5aa82c79eee50e65e842475a7ee03931c62863cff91831004a0caed",
+      "source_sha256": "ba7e5534c5aa82c79eee50e65e842475a7ee03931c62863cff91831004a0caed",
+      "source_non_import_ast_sha256": "7986b8b360c3fe7ac7105d3bf05876a4d0bae9506d12eba053364928eacf8c35"
     }
   ]
 }
