@@ -1,0 +1,28 @@
+docs/internal_source_manifest.json
+  h_0b003bdeb6e2f2 1-338
+src/torchturbo/models/deepseek_v41/model.py
+  h_0b003bdeb6e2f2 144-157
+src/torchturbo/models/deepseek_v41/npu.py
+  h_0b003bdeb6e2f2 1-107
+src/torchturbo/ops/providers/npu/gated_activation.py
+  h_0b003bdeb6e2f2 1-74
+src/torchturbo/ops/providers/npu/mhc_post.py
+  h_0b003bdeb6e2f2 1-98
+src/torchturbo/ops/providers/npu/mhc_pre_sinkhorn_premix.py
+  h_0b003bdeb6e2f2 1-265
+tests/ops/npu/test_dsv41_mhc_post_ops.py
+  h_0b003bdeb6e2f2 1-128
+tests/ops/npu/test_dsv41_mhc_sinkhorn_ops.py
+  h_0b003bdeb6e2f2 1-978
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "72ee1ce6f744346b8769b8f711742c067de99fec",
+  "prompts": {},
+  "humans": {
+    "h_0b003bdeb6e2f2": {
+      "author": "ericchenyunzikai <ericchenyunzikai@outlook.com>"
+    }
+  }
+}
